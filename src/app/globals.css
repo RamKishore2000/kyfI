@@ -1,26 +1,130 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f4f6f8;
+  --foreground: #0f172a;
+  --app-font-sans: "Segoe UI", "Trebuchet MS", system-ui, sans-serif;
+  --app-font-serif: Georgia, "Times New Roman", serif;
+  --font-size-root: 16px;
+  --font-size-body: 16px;
+  --font-size-sm: 14px;
+  --font-size-xs: 12px;
+  --font-size-h1: clamp(2rem, 2.4vw, 2.75rem);
+  --font-size-h2: clamp(1.5rem, 1.9vw, 2rem);
+  --font-size-h3: clamp(1.25rem, 1.5vw, 1.5rem);
+  --line-body: 1.6;
+  --line-tight: 1.18;
+  --line-normal: 1.45;
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--app-font-sans);
+  --font-serif: var(--app-font-serif);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+html {
+  font-size: var(--font-size-root);
+  background: #f4f6f8;
 }
 
 body {
-  background: var(--background);
+  margin: 0;
+  background:
+    radial-gradient(circle at top left, rgba(16, 185, 129, 0.08), transparent 24%),
+    radial-gradient(circle at top right, rgba(14, 165, 233, 0.06), transparent 24%),
+    linear-gradient(180deg, #f8fafc 0%, #eef2f7 100%);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--app-font-sans);
+  font-size: var(--font-size-body);
+  font-weight: var(--weight-regular);
+  line-height: var(--line-body);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body,
+button,
+input,
+textarea,
+select {
+  letter-spacing: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  font-family: var(--app-font-sans);
+  font-weight: var(--weight-semibold);
+  line-height: var(--line-tight);
+  color: var(--foreground);
+}
+
+h1 {
+  font-size: var(--font-size-h1);
+  letter-spacing: -0.03em;
+}
+
+h2 {
+  font-size: var(--font-size-h2);
+  letter-spacing: -0.025em;
+}
+
+h3 {
+  font-size: var(--font-size-h3);
+  letter-spacing: -0.02em;
+}
+
+p,
+li,
+label {
+  margin: 0;
+  line-height: var(--line-body);
+}
+
+small,
+.text-xs {
+  font-size: var(--font-size-xs);
+  line-height: var(--line-normal);
+}
+
+.text-sm {
+  font-size: var(--font-size-sm);
+  line-height: var(--line-body);
+}
+
+button {
+  font-weight: var(--weight-semibold);
+  line-height: 1.2;
+}
+
+input,
+textarea,
+select {
+  font: inherit;
+  line-height: var(--line-body);
+}
+
+::selection {
+  background: rgba(16, 185, 129, 0.18);
+  color: #0f172a;
 }
