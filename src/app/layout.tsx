@@ -1,7 +1,14 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
+import localFont from "next/font/local";
 import { Providers } from "./providers";
 import "./globals.css";
+
+const manrope = localFont({
+  src: "../../node_modules/next/dist/compiled/@vercel/og/Geist-Regular.ttf",
+  variable: "--font-manrope",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL("http://localhost:3000"),
@@ -54,8 +61,8 @@ export default function RootLayout({
   children: ReactNode;
 }>) {
   return (
-    <html lang="en" className="h-full antialiased">
-      <body className="min-h-full">
+    <html lang="en" className={`h-full antialiased ${manrope.variable}`}>
+      <body className="min-h-full font-sans">
         <Providers>{children}</Providers>
       </body>
     </html>

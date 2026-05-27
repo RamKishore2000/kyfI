@@ -1,16 +1,13 @@
- "use client";
+"use client";
 
-import { DealerShell } from "@/components/kyfi/dealer-shell";
-import { DashboardView } from "@/components/kyfi/views/dashboard-view";
-import { useKyfiCopy } from "@/components/kyfi/locale-provider";
+import { DealerShell } from "@/components/dealer-shell";
+import { DashboardView } from "@/components/views/dashboard-view";
+import { useKyfiCopy } from "@/components/locale-provider";
 
 export default function DashboardPage() {
   const c = useKyfiCopy();
   return (
-    <DealerShell
-      title={c.dashboard.title}
-      description={c.dashboard.description}
-    >
+    <DealerShell title={c.dashboard.title}>
       <DashboardView />
     </DealerShell>
   );
